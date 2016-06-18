@@ -37,6 +37,9 @@ export function isSingleMode(props) {
 
 export function toArray(value) {
   let ret = value;
+  if (value.constructor.name === 'List') {
+    return ret.toJS();
+  }
   if (value === undefined) {
     ret = [];
   } else if (!Array.isArray(value)) {
